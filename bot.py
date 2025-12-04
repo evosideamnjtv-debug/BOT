@@ -2,6 +2,22 @@ import discord
 from discord.ext import commands
 import asyncio
 import os
+from flask import Flask
+from threading import Thread
+
+# สร้าง Web Server สำหรับ Replit
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "🤖 Discord Bot is running!"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 
 # ตั้งค่า Intents
 intents = discord.Intents.default()
