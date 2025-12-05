@@ -312,6 +312,11 @@ if __name__ == '__main__':
         print('❌ ไม่พบ DISCORD_TOKEN! กรุณาตั้งค่า Environment Variable')
         exit(1)
     
+    # ⚡ เปิด Web Server ก่อนรันบอท (สำคัญมาก!)
+    print('🌐 กำลังเปิด Web Server...')
+    keep_alive()
+    
+    print('🤖 กำลังเชื่อมต่อบอท...')
     try:
         bot.run(TOKEN)
     except discord.LoginFailure:
